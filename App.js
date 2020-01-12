@@ -1,5 +1,7 @@
 import React , {useState} from 'react';
 import Login from './components/Login.js';
+import HeaderMenu from './components/Common/HeaderMenu.js';
+import {StyleSheet,View} from 'react-native';
 
 export default function App() {
  
@@ -7,7 +9,7 @@ export default function App() {
 
      <View style={styles.container}>
   
-   <Login/>
+   <HeaderMenu/>
     </View>
     
   );
