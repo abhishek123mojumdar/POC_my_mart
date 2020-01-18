@@ -1,19 +1,12 @@
 import React, {Component, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View,Text} from 'react-native';
 import { Header, ThemeProvider } from 'react-native-elements';
 
-const HeaderMenu=() => {
+const HeaderMenu=(props) => {
 
-  
-
-  
         return(
-    <View style={styles.Header}>
-      <Header
-  leftComponent={{ icon: 'menu', color: '#fff' }}
-  centerComponent={{ text: 'My Mart', style: { color: '#fff' } }}
-  rightComponent={{ icon: 'home', color: '#fff' }}
-/>
+    <View style={styles.header}>
+      <Text style={styles.headerTitle}>{props.title}</Text>
     </View>
 
         );
@@ -21,16 +14,18 @@ const HeaderMenu=() => {
     }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  header:{
+    width: '100%',
+    height: 50,
+    paddingTop: 30,
+    backgroundColor:'#007fff',
+    alignItems:'center',
+    justifyContent:'center'
   },
-  Header:{
-    flex: 1,
-    backgroundColor: '#fff',
-        alignItems: 'center'
+  headerTitle:{
+    color:'black',
+    fontSize:20,
+    paddingBottom:25
   }
 });
 
