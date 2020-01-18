@@ -4,8 +4,8 @@ import Card from '../Components/Common/CardContainer'
 import HeaderMenu from '../Components/Common/HeaderMenu.js';
 import { SearchBar } from 'react-native-elements';
 
-const ProductScreen=() => {
-
+const ProductScreen=(props) => {
+  let categoryId = props.navigation.getParam('categoryID');
   const products = [
  {
    "100D63":
@@ -13,22 +13,26 @@ const ProductScreen=() => {
    {
    name: 'Mango',
    avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-   categoryID:"100Pr"
+   productID:"100Pr",
+   price: 50
    } ,
    {
-    name: 'Fruits & Vegetables',
+    name: 'Grape',
     avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-    categoryID:"101Pr"
+    productID:"101Pr",
+    price: 40
     } ,
     {
       name: 'Potatoe',
       avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-      categoryID:"102Pr"
+      productID:"102Pr",
+      price: 30
     } ,
     {
       name: 'Onion',
       avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-      categoryID:"103Pr"
+      productID:"103Pr",
+      price: 85
     } 
    ],
    "101D63":
@@ -36,22 +40,26 @@ const ProductScreen=() => {
    {
    name: 'Rice',
    avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-   categoryID:"104Pr"
+   productID:"104Pr",
+   price: 60
    } ,
    {
     name: 'Dal',
     avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-    categoryID:"105Pr"
+    productID:"105Pr",
+    price: 48
     } ,
     {
       name: 'Red Chilli',
       avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-      categoryID:"106Pr"
+      productID:"106Pr",
+      price:34
     } ,
     {
       name: 'Mustard',
       avatar: 'https://d2ebzu6go672f3.cloudfront.net/media/content/images/H0517_Veggies_TSk-512628780.jpg',
-      categoryID:"107Pr"
+      productID:"107Pr",
+      price:41
     } 
    ]
 }
@@ -59,8 +67,11 @@ const ProductScreen=() => {
 ];
   
 return(
-  <HeaderMenu></HeaderMenu>
-
+  <View>
+    <HeaderMenu></HeaderMenu>
+   <Text>akjbhb {categoryId}</Text>
+  </View>
+  
 );
        
     }
