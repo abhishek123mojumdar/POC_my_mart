@@ -4,7 +4,7 @@ import Card from '../Components/Common/CardContainer'
 import HeaderMenu from '../Components/Common/HeaderMenu.js';
 import { SearchBar } from 'react-native-elements';
 
-const CategoriesScreen=() => {
+const CategoriesScreen=(props) => {
 
   const categories = [
  {
@@ -40,7 +40,11 @@ return(
   {
     categories.map((u, i) => {
       return (
-        <View key={i} style={styles.category}>
+        
+          <View key={i} style={styles.category}>
+          <TouchableOpacity onPress={()=>{
+            props.navigation.navigate({routeName:'Products',params:{categoryID:u.categoryID}})
+          }}>
           <Card style={styles.cardContainer}>
             <Text>{u.name}</Text>
             <Image
@@ -48,7 +52,9 @@ return(
               source={{uri: u.avatar}}
             />
           </Card>
+        </TouchableOpacity>
         </View>
+       
       );
     })
   }
