@@ -1,17 +1,11 @@
-import React , {useState} from 'react';
-import Login from './Components/Login.js';
-import {StyleSheet,View} from 'react-native';
+import React  from 'react';
+import {StyleSheet} from 'react-native';
+import Navigator from './Navigation/Navigator'
 
 export default function App() {
  
-  return (
+  return <Navigator />;
 
-     <View style={styles.container}>
-  
-   <Login/>
-    </View>
-    
-  );
 }
 
 const styles = StyleSheet.create({
