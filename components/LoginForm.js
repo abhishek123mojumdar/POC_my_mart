@@ -19,9 +19,9 @@ setPassword(pass)
 const navigateToCategories = () =>{  
     if(userName == 'admin' && Password == 'test123' ){
         props.property.navigation.navigate({routeName:'Categories'});
-        message='';
-        userName='';
-        Password='';
+        setMessage('');
+        setUserName('');
+        setPassword('');
     }
     else{
         setMessage('Please check userID and Password');
@@ -30,8 +30,8 @@ const navigateToCategories = () =>{
 }
   return (
     <View style={styles.container}>
-     <TextInput style={styles.inputbox} underlineColorAndroid="rgba(0,0,0,0)" placeholder="Username / Email / Phone" placeholderTextColor="black" onChangeText={getUserName}/>
-     <TextInput style={styles.inputbox} underlineColorAndroid="rgba(0,0,0,0)" secureTextEntry={true} placeholder="Password" placeholderTextColor="black" onChangeText={getPassword}/>
+     <TextInput style={styles.inputbox} underlineColorAndroid="rgba(0,0,0,0)" placeholder="Username / Email / Phone" placeholderTextColor="black" onChangeText={getUserName} />
+     <TextInput style={styles.inputbox} underlineColorAndroid="rgba(0,0,0,0)" secureTextEntry={true} placeholder="Password" placeholderTextColor="black" onChangeText={getPassword} />
      <TouchableOpacity style={styles.button} onPress={navigateToCategories}>
          <Text style={styles.buttonText}>Login</Text>
      </TouchableOpacity>
