@@ -16,6 +16,7 @@ import HeaderMenu from "../Components/Common/HeaderMenu.js";
 import { SearchBar } from "react-native-elements";
 import { MaterialIcons } from "@expo/vector-icons";
 
+
 const ProductScreen = props => {
   let categoryId = props.navigation.getParam("categoryID");
   let categoryName = props.navigation.getParam("categoryName");
@@ -306,13 +307,18 @@ const ProductScreen = props => {
                       />
                     </View> */}
                    
-                    <Button
+                   <View style={{marginTop:10}}>
+                    {/* <Button
                       style={{ height: 10, marginLeft: 50 }}
                       title="Add"
                       color="#464140"
                       onPress={handleClick.bind(this, u.productID)}
-                    />
-                     <Text> Quanity: 0 </Text>
+                    /> */}
+
+                      <TouchableOpacity style={styles.button} onPress={handleClick.bind(this, u.productID)}>
+         <Text style={styles.buttonText}>Add</Text>
+     </TouchableOpacity>
+                     </View>
                   </View>
                 </Card>
               </TouchableOpacity>
@@ -390,7 +396,23 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
     borderRadius: 10,
     flexDirection: "row"
-  }
+  },
+  button:{
+backgroundColor : '#696c66',
+alignItems: "center",
+height:30,
+borderRadius:25,
+marginVertical:10,
+paddingTop:0,
+color:"#fff"
+},
+buttonText:{
+    fontSize:16,
+    fontWeight:'500',
+    color:'white',
+    marginTop:5,
+    textAlign:'center'
+},
 });
 
 export default ProductScreen;
