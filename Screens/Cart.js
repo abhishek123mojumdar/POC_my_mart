@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import { StyleSheet, Text, Button, TextInput, View,Image,FlatList,TouchableOpacity } from "react-native";
-import { SocialIcon,ListItem  } from "react-native-elements";
+import { SocialIcon,ListItem, Divider,PricingCard } from "react-native-elements";
 import LoginImage from '../Components/LoginImage'
 import LoginForm  from '../Components/LoginForm'
 import Card from '../Components/Common/CardContainer' 
@@ -14,8 +14,21 @@ let currentCartContent=global.oCart;
 
 console.log(currentCartContent);
 
+let sum=0;
+
+for(let i=0;i<global.oCart.length;i++)
+{
+    global.oCart[i].finalAmount= global.oCart[i].quantity*global.oCart[i].price
+    sum+=global.oCart[i].finalAmount;
+}
+
+let tax= 0.15*sum;
+
+let oFinalAmount=tax+sum;
+console.log(global.oCart);
+
 navToPayment = () => {
-    props.navigation.navigate({ routeName: "Payment" });
+    props.navigation.navigate({ routeName: "Payment",params:{finalAmount:oFinalAmount} });
   };
 
 
@@ -44,16 +57,33 @@ navToPayment = () => {
         key={i}
         leftAvatar={{ source: { uri: l.avatar } }}
         title={l.name}
-        rightSubtitle={l.quantity}
-        
+        rightSubtitle={'Rs' + l.finalAmount}
+
+        subtitle={'Quantity: ' + l.quantity}
+     
         bottomDivider
         
       />
     ))
   }
+  <View style={styles.shiftDown}>
+  <Divider style={{ backgroundColor: 'black',marginTop:20 }} />
+  <View style={styles.showRight}>
+    <Text style={{marginTop:10}}> { 'Net Payable: Rs '+sum} </Text>
+    <Text> { 'Taxes: Rs '+tax} </Text>
+    </View>
+  <Divider style={{ backgroundColor: 'black',marginTop:10 }} />
   </View>
 
+    <View style={styles.showRight}>
+    <Text> { 'Final Amount: Rs '+oFinalAmount} </Text>
+    </View>
+    </View>
+
+  
+
  <View style={styles.bottomView}>
+ 
         <TouchableOpacity onPress={navToPayment}>
           <View style={styles.item}>
             <MaterialIcons name="navigate-next" size={18} color="#333" />
@@ -73,7 +103,11 @@ const styles = StyleSheet.create({
      paddingTop: 15,
      paddingBottom:200
     
-}, image: {
+},
+showRight:{
+     alignItems: 'flex-end',
+},
+ image: {
       flexGrow:1,
       height:null,
       width:null,
@@ -103,6 +137,16 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
     borderRadius: 10,
     flexDirection: "row"
+  },
+  buttonText:{
+    fontSize:16,
+    fontWeight:'500',
+    color:'white',
+    marginTop:5,
+    textAlign:'center'
+},
+  shiftDown:{
+marginTop:100
   }
 });
 
