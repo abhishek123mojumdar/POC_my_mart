@@ -14,13 +14,15 @@ const PaymentScreen = (props) => {
 
 // console.log(currentCartContent);
 
+ let categoryName = props.navigation.getParam("finalAmount");
+
 
 
 
   return (
       <View>
     
-        <Text> Payment Screen </Text>
+        <Text> {categoryName} </Text>
 
       </View>
     
