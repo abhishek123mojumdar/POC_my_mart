@@ -14,57 +14,46 @@ const PaymentScreen = (props) => {
 
 // console.log(currentCartContent);
 
- let categoryName = props.navigation.getParam("finalAmount");
-
-
+ let paymentAmount = props.navigation.getParam("finalAmount");
 
 
   return (
-      <View>
-    
-        <Text> {categoryName} </Text>
-
-      </View>
+        <View style={styles.container}>
+          <Text>{paymentAmount}</Text>
+          <TouchableOpacity style={styles.button} onPress={()=>{
+            props.navigation.navigate({routeName:'Success', params:{amount:paymentAmount}})}}>
+            <Text style={styles.buttonText}>Make Payment</Text>
+          </TouchableOpacity>
+        </View>
+     
     
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-     paddingTop: 15,
-     paddingBottom:200
-    
-}, image: {
-      flexGrow:1,
-      height:null,
-      width:null,
-      alignItems: 'center',
+const styles = StyleSheet.create(
+  {
+    container: {
+      flex: 1,
+      backgroundColor: '#F7F7F7',
+      flexDirection:'column',
+      alignItems:'center',
       justifyContent:'center'
-    },
-     cardContainer:{
-    width:400,
-    height:100,
-    maxWidth:'80%',
-    alignItems:'center'
-  }, bottomView: {
-    width: "100%",
-    padding: 10,
-    backgroundColor: "#17C2DF",
-    justifyContent: "center",
-    alignItems: "flex-end",
-    position: "absolute", //Here is the trick
-    bottom: 0 //Here is the trick
   },
-  
-  item: {
-    padding: 7,
-    marginTop: 2,
-    borderColor: "#bbb",
-    borderWidth: 1,
-    borderStyle: "dashed",
-    borderRadius: 10,
-    flexDirection: "row"
+  buttonText:{
+      fontSize:16,
+      fontWeight:'500',
+      color:'white',
+      marginTop:5,
+      textAlign:'center'
+  },
+  button:{
+  backgroundColor : '#696c66',
+  width:300,
+  height:30,
+  borderRadius:25,
+  marginVertical:10
   }
-});
+  }
+);
 
 export default PaymentScreen;
