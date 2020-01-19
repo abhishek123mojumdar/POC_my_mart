@@ -16,7 +16,7 @@ const PaymentScreen = (props) => {
 
  let amount = props.navigation.getParam("finalAmount");
 
- let deliveryCharge = 25 * (Number((amount/100).toFixed(0))+1);
+ let deliveryCharge = 25 * (Number((amount/100).toFixed(0)));
 
  let grandTotal = amount+deliveryCharge;
 
