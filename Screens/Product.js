@@ -185,6 +185,10 @@ const ProductScreen = props => {
 
    }
 
+   const navToCart = ()=>{
+    props.navigation.navigate({routeName:'Cart'});
+   }
+
   // console.log(categoryId);
   // console.log(categoryName);
 
@@ -275,7 +279,7 @@ const ProductScreen = props => {
       <View style={styles.bottomView}>
 
           
-      <TouchableOpacity onPress={()=>navToCart}>
+  <TouchableOpacity onPress={navToCart}>
    
     <View style={styles.item}>
     <MaterialIcons name='shopping-cart' size={18} color ="#333" />

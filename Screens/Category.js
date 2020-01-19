@@ -3,6 +3,7 @@ import {StyleSheet, Text, Button, TextInput, Image, View,TouchableOpacity,FlatLi
 import Card from '../Components/Common/CardContainer' 
 import HeaderMenu from '../Components/Common/HeaderMenu.js';
 import { SearchBar } from 'react-native-elements';
+import Carousel from '../Components/Common/Carousel'
 
 const CategoriesScreen=(props) => {
 
@@ -56,12 +57,13 @@ const renderedCatItems =(itemData)=>{
 }
   
 return(
-  <ScrollView>
-    <FlatList keyExtractor={(item,index)=>String(index)} data={categories} renderItem={renderedCatItems} numColumns={2}>
-
-    </FlatList>
-  </ScrollView>
-  
+  <View>
+  <Carousel/>
+    <View style={styles.scrollView}>
+    <FlatList keyExtractor={(item,index)=>String(index)} data={categories} renderItem={renderedCatItems} numColumns={2}/>
+    </View>
+    
+  </View>
 );
     
 
@@ -101,6 +103,9 @@ const styles = StyleSheet.create({
       width:null,
       alignItems: 'center',
       justifyContent:'center'
+    },
+    scrollView:{
+      flexGrow:1
     }
 });
 
