@@ -69,7 +69,7 @@ const ProductScreen=(props) => {
 return(
   <View>
     <HeaderMenu></HeaderMenu>
-   <Text>akjbhb {categoryId}</Text>
+   <Text>{categoryId}</Text>
   </View>
   
 );
