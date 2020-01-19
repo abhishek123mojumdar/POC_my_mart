@@ -12,7 +12,7 @@ const Navigator = createStackNavigator({
     Categories : CategoriesScreen,
     Products : ProductScreen,
     Cart: CartScreen,
-    Payment:PaymentScreen,
+    "Make Payment":PaymentScreen,
     Success: SuccessScreen
 })
 
