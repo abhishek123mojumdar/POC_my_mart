@@ -3,6 +3,8 @@ import {StyleSheet} from 'react-native';
 import Navigator from './Navigation/Navigator'
 
 export default function App() {
+
+  global.oCart =[];
  
   return <Navigator />;
 
