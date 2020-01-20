@@ -17,7 +17,7 @@ getPassword = (pass)=>{
 setPassword(pass)
 }
 const navigateToCategories = () =>{  
-    if(userName == 'admin' && Password == 'test123' ){
+    if((userName == 'admin' && Password == 'test123') ){
         props.property.navigation.navigate({routeName:'Categories'});
         setMessage('');
         setUserName('');

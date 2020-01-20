@@ -28,7 +28,7 @@ let oFinalAmount=tax+sum;
 console.log(global.oCart);
 
 navToPayment = () => {
-    props.navigation.navigate({ routeName: "Payment",params:{finalAmount:oFinalAmount} });
+    props.navigation.navigate({ routeName: "Make Payment",params:{finalAmount:oFinalAmount} });
   };
 
 
